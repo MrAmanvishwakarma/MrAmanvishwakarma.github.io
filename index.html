@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMG→BIN Converter</title>
     <style>
         * {
@@ -18,14 +19,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 15px;
         }
 
         .container {
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            padding: 40px;
+            padding: 30px 20px;
             max-width: 500px;
             width: 100%;
             text-align: center;
@@ -33,25 +34,47 @@
 
         h1 {
             color: #333;
-            font-size: 28px;
-            margin-bottom: 10px;
+            font-size: 24px;
+            margin-bottom: 8px;
             font-weight: 700;
         }
 
         .subtitle {
             color: #666;
-            font-size: 14px;
-            margin-bottom: 30px;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        @media (min-width: 480px) {
+            .container {
+                padding: 40px;
+            }
+
+            h1 {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+                margin-bottom: 30px;
+            }
         }
 
         .upload-area {
             border: 3px dashed #667eea;
             border-radius: 15px;
-            padding: 40px 20px;
+            padding: 30px 15px;
             margin-bottom: 20px;
             transition: all 0.3s ease;
             cursor: pointer;
             background: #f8f9ff;
+        }
+
+        @media (min-width: 480px) {
+            .upload-area {
+                padding: 40px 20px;
+            }
         }
 
         .upload-area:hover {
@@ -67,14 +90,28 @@
         }
 
         .upload-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        @media (min-width: 480px) {
+            .upload-icon {
+                font-size: 48px;
+                margin-bottom: 15px;
+            }
         }
 
         .upload-text {
             color: #667eea;
             font-weight: 600;
             margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        @media (min-width: 480px) {
+            .upload-text {
+                font-size: 16px;
+            }
         }
 
         .upload-hint {
@@ -139,14 +176,21 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            padding: 15px 40px;
-            font-size: 16px;
+            padding: 14px 30px;
+            font-size: 15px;
             font-weight: 600;
             border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
             width: 100%;
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (min-width: 480px) {
+            button {
+                padding: 15px 40px;
+                font-size: 16px;
+            }
         }
 
         button:hover:not(:disabled) {
@@ -333,6 +377,7 @@
                     link.href = url;
                     link.download = selectedFile.name.replace(/\.img$/i, ".bin");
                     link.click();
+        
                     URL.revokeObjectURL(url);
 
                     processing.classList.remove('show');
